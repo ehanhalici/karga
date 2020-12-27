@@ -4,10 +4,8 @@
 #include <webkit2/webkit2.h>
 #include "parse.h"
 
-//const gchar *url = "https://wiki.archlinux.org/";
-const gchar *url = "https://en.m.wikipedia.org/wiki/Main_Page";
-//const gchar *url = "https://tr.wikipedia.org/wiki/Anasayfa";
-//const gchar *url = "http://localhost:8000/";
+const gchar *url = "https://www.google.com";
+
 int width = 800;
 int height = 600;
 GtkWidget *webview;
