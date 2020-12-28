@@ -48,6 +48,15 @@ void clearPunctuation(cstring c)
 int parser(char* html)
 {	
 	cstring htmlClass = String(html);
+
+	//is english
+	int htmlStart = htmlClass->find(htmlClass,0,HTMLSTART);
+	int htmlEnd = htmlClass->find(htmlClass,htmlStart,TAGCLOSE);
+	int language = htmlClass->find(htmlClass,htmlStart,LANG);
+	//this is not english
+	if(language >  htmlEnd && language != -1)
+		return -1;
+
 	//clear comment
 	int commentOpen = 0;
 	int commentClose = 0;
@@ -60,14 +69,6 @@ int parser(char* html)
 		commentClose += strlen(COMMENTCLOSE);
 		htmlClass->deleteNtoN(htmlClass, commentOpen, commentClose);
 	}
-
-	//is english
-	int htmlStart = htmlClass->find(htmlClass,0,HTMLSTART);
-	int htmlEnd = htmlClass->find(htmlClass,htmlStart,TAGCLOSE);
-	int language = htmlClass->find(htmlClass,htmlStart,LANG);
-	//this is not english
-	if(language >  htmlEnd && language != -1)
-		return -1;
 
 
 	//find start and end
