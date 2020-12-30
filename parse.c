@@ -127,9 +127,9 @@ int parser(char* html)
 		htmlClass->slice(htmlClass, temp, tagClose + 1, tagOpen);
 		//lowercase
 		//temp->lower(temp);
-		temp->replaceThisString(temp, "\n", "");
-		temp->replaceThisString(temp, "\t", "");
-		temp->replaceThisString(temp, "\v", "");
+		temp->replaceThisString(temp, "\n", " ");
+		temp->replaceThisString(temp, "\t", " ");
+		temp->replaceThisString(temp, "\v", " ");
 		//temp->replaceThisString(temp, " a ", "");
 		//temp->replaceThisString(temp, " am ", " ");
 		//temp->replaceThisString(temp, " is ", " ");
