@@ -16,6 +16,7 @@ static void listAdd(cstringList **root, char *string)
 	{
 		(*root)->data = String(string);
 		(*root)->next = NULL;
+		(*root)->back = NULL;
 		return;
 	}
 
@@ -24,7 +25,8 @@ static void listAdd(cstringList **root, char *string)
 	while (ptr->next != NULL)
 		ptr = ptr->next;
 
-	ptr->next = (cstringList *)malloc(sizeof(cstringList));
+	ptr->next = StringList();
+	ptr->next->back = ptr; 
 	ptr = ptr->next;
 
 	ptr->next = NULL;
@@ -219,7 +221,7 @@ static void addTo(cstring *this, int index, char *addTo)
 	this->new (this, temp);
 }
 
-//BUG VAR DÜZELT
+
 static void replaceThisIndex(cstring *this, int start, int end, char *textToReplace)
 {
 	if(start >= end)
@@ -375,7 +377,7 @@ int isSpace(cstring *this)
 	return 0;
 }
 
-//BUG daha bitmedi
+
 static cstringList *getListFromParse(cstring *this, char *parseString)
 {
 	cstring *temp;

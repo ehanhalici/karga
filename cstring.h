@@ -8,7 +8,7 @@ struct cstringList
 {
 	cstring* data;
 	cstringList *next;
-
+	cstringList *back;
 	void (*listAdd)(cstringList **root, char* key);
 	int (*listCount)(cstringList *root);
 	cstringList* (*listFind)(cstringList **root, char *key);
